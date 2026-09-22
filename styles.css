@@ -15,3 +15,8 @@ footer{padding:22px 4vw;display:flex;justify-content:space-between;gap:20px;colo
 .hero-image,.service-card img,.main-frame img,.thumb img,.mini-row img,.contact-image img{image-rendering:auto}
 .service-card img,.main-frame img,.thumb img{object-position:center}
 .hero-image{object-position:center 35%}
+
+/* Final hero framing: show the styled locs first, face second */
+.hero-image{object-position:58% 42% !important}
+.hero-image-wrap{background:#0a0908}
+@media(max-width:640px){.hero-image{object-position:62% 40% !important}}
