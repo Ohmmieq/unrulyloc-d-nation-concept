@@ -15,7 +15,7 @@ const serviceData={
     title:"Fresh Retwist",
     copy:"Fresh retwists with clean parts, controlled tension and polished roots. No braids, no unrelated protective styles.",
     list:["Fresh retwist","Clean root work","Defined parts","Healthy maintenance"],
-    images:["assets/fresh-retwist.webp","assets/styles.webp"]
+    images:["assets/blonde-style.webp","assets/styles.webp"]
   },
   styles:{
     title:"Styles",
