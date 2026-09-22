@@ -1,0 +1,38 @@
+name: Fetch final website images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fetch-final-images.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download final approved images
+        run: |
+          mkdir -p assets
+          curl -L --fail --retry 4 --retry-delay 2             "https://d2ol7oe51mr4n9.cloudfront.net/user_3JbQqH5iuEcETSWaWccnJy9ajjk/9a32c7fb-a790-4ca1-adbc-2e38bb5896bf.png"             -o assets/final-hero.png
+          curl -L --fail --retry 4 --retry-delay 2             "https://d2ol7oe51mr4n9.cloudfront.net/user_3JbQqH5iuEcETSWaWccnJy9ajjk/a07a08e9-740e-4a32-9f46-26945f69a0c6.png"             -o assets/final-loc-repair.png
+          curl -L --fail --retry 4 --retry-delay 2             "https://d2ol7oe51mr4n9.cloudfront.net/user_3JbQqH5iuEcETSWaWccnJy9ajjk/f253a0ed-8136-441e-8e54-8fafc2f0007d.png"             -o assets/final-fresh-retwist.png
+          test -s assets/final-hero.png
+          test -s assets/final-loc-repair.png
+          test -s assets/final-fresh-retwist.png
+          file assets/final-hero.png assets/final-loc-repair.png assets/final-fresh-retwist.png
+
+      - name: Commit images to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/final-hero.png assets/final-loc-repair.png assets/final-fresh-retwist.png
+          git diff --cached --quiet && exit 0
+          git commit -m "Store final approved website images [skip ci]"
+          git push
