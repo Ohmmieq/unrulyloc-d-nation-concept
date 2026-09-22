@@ -1,17 +1,15 @@
-const menuButton=document.querySelector(".menu-toggle");
-const nav=document.querySelector(".nav-links");
-const toast=document.querySelector(".toast");
-let toastTimer;
+const menuToggle=document.querySelector(".menu-toggle");
+const nav=document.querySelector(".main-nav");
 
-menuButton?.addEventListener("click",()=>{
+menuToggle?.addEventListener("click",()=>{
   const open=nav.classList.toggle("open");
-  menuButton.setAttribute("aria-expanded",String(open));
+  menuToggle.setAttribute("aria-expanded",String(open));
 });
 
-document.querySelectorAll(".nav-links a").forEach(link=>{
+document.querySelectorAll(".main-nav a").forEach(link=>{
   link.addEventListener("click",()=>{
     nav.classList.remove("open");
-    menuButton?.setAttribute("aria-expanded","false");
+    menuToggle?.setAttribute("aria-expanded","false");
   });
 });
 
@@ -20,55 +18,87 @@ const serviceData={
     number:"01",
     kicker:"HAIR RESTORATION",
     title:"Bring the crown back.",
-    text:"A restoration-first service for locs that need structure, reinforcement and a healthier plan forward.",
+    copy:"A restoration-first service built around preserving what can be saved, strengthening weak areas and creating a maintenance plan that protects the result.",
     tags:["Assessment","Repair","Reinforcement","Aftercare"]
   },
-  repairs:{
+  retwist:{
     number:"02",
-    kicker:"LOC REPAIRS",
-    title:"Repair what can be saved.",
-    text:"Targeted support for thinning roots, damaged sections, breakage and detached locs — without turning the whole appointment into a rebuild.",
-    tags:["Root repair","Reattachment","Crochet work","Strength"]
+    kicker:"RETWIST & LOC CARE",
+    title:"Fresh roots. Better energy.",
+    copy:"Clean sectioning, comfortable tension and maintenance that leaves the crown polished without sacrificing healthy growth.",
+    tags:["Retwist","Cleansing","Sectioning","Maintenance"]
   },
-  care:{
+  repair:{
     number:"03",
-    kicker:"LOC CARE",
-    title:"Fresh roots. Healthy routine.",
-    text:"Regular maintenance, retwists, cleansing and practical aftercare that helps clients keep their locs looking clean between appointments.",
-    tags:["Retwist","Cleansing","Maintenance","Aftercare"]
+    kicker:"LOC REPAIRS",
+    title:"Repair before it snaps.",
+    copy:"Targeted support for thinning roots, loose sections, breakage and detached locs — focused on the actual weak point, not a one-size-fits-all fix.",
+    tags:["Weak roots","Crochet","Reattachment","Strength"]
   },
   instant:{
     number:"04",
     kicker:"INSTANT LOCS",
     title:"Start locked. Start strong.",
-    text:"A professionally created loc foundation for clients who want to begin their journey with an established look from day one.",
-    tags:["Consultation","Foundation","Sectioning","Finish"]
+    copy:"A deliberate loc foundation for clients who want an established look from day one with clean parting, structure and a strong starting point.",
+    tags:["Consultation","Sectioning","Foundation","Finish"]
   }
 };
 
-const cards=[...document.querySelectorAll(".service-card")];
-cards.forEach(card=>{
-  card.addEventListener("click",()=>{
-    cards.forEach(c=>c.classList.remove("active"));
-    card.classList.add("active");
-    const item=serviceData[card.dataset.service];
-    document.querySelector(".spotlight-number").textContent=item.number;
-    document.querySelector(".spotlight-kicker").textContent=item.kicker;
-    document.querySelector(".spotlight-title").textContent=item.title;
-    document.querySelector(".spotlight-text").textContent=item.text;
-    document.querySelector(".spotlight-tags").innerHTML=item.tags.map(tag=>`<span>${tag}</span>`).join("");
+const detail=document.querySelector("#service-detail");
+const marker=document.querySelector(".service-detail-marker");
+const detailKicker=document.querySelector(".detail-kicker");
+const detailTitle=document.querySelector(".detail-title");
+const detailDescription=document.querySelector(".detail-description");
+const detailTags=document.querySelector(".detail-tags");
+
+document.querySelectorAll("[data-open-service]").forEach(button=>{
+  button.addEventListener("click",()=>{
+    const item=serviceData[button.dataset.openService];
+    marker.textContent=item.number;
+    detailKicker.textContent=item.kicker;
+    detailTitle.textContent=item.title;
+    detailDescription.textContent=item.copy;
+    detailTags.innerHTML=item.tags.map(tag=>`<span>${tag}</span>`).join("");
+    detail.scrollIntoView({behavior:"smooth",block:"center"});
   });
 });
 
+const serviceModal=document.querySelector(".service-modal");
+const modalKicker=document.querySelector(".modal-kicker");
+const modalTitle=document.querySelector(".modal-title");
+const modalCopy=document.querySelector(".modal-copy");
+const modalTags=document.querySelector(".modal-tags");
+
+document.querySelectorAll(".service-panel").forEach(panel=>{
+  panel.addEventListener("dblclick",()=>{
+    const item=serviceData[panel.dataset.service];
+    modalKicker.textContent=item.kicker;
+    modalTitle.textContent=item.title;
+    modalCopy.textContent=item.copy;
+    modalTags.innerHTML=item.tags.map(tag=>`<span>${tag}</span>`).join("");
+    serviceModal.classList.add("open");
+    serviceModal.setAttribute("aria-hidden","false");
+    document.body.style.overflow="hidden";
+  });
+});
+
+function closeServiceModal(){
+  serviceModal?.classList.remove("open");
+  serviceModal?.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+}
+document.querySelector(".service-modal-close")?.addEventListener("click",closeServiceModal);
+serviceModal?.addEventListener("click",e=>{if(e.target===serviceModal)closeServiceModal();});
+
 const lightbox=document.querySelector(".lightbox");
-const lightboxImage=lightbox?.querySelector("img");
+const lightboxImg=lightbox?.querySelector("img");
 const lightboxTitle=lightbox?.querySelector("p");
 
-document.querySelectorAll(".lightbox-trigger").forEach(button=>{
-  button.addEventListener("click",()=>{
-    lightboxImage.src=button.dataset.image;
-    lightboxImage.alt=button.dataset.title;
-    lightboxTitle.textContent=button.dataset.title;
+document.querySelectorAll("[data-lightbox]").forEach(card=>{
+  card.addEventListener("click",()=>{
+    lightboxImg.src=card.dataset.lightbox;
+    lightboxImg.alt=card.dataset.title;
+    lightboxTitle.textContent=card.dataset.title;
     lightbox.classList.add("open");
     lightbox.setAttribute("aria-hidden","false");
     document.body.style.overflow="hidden";
@@ -82,28 +112,48 @@ function closeLightbox(){
 }
 document.querySelector(".lightbox-close")?.addEventListener("click",closeLightbox);
 lightbox?.addEventListener("click",e=>{if(e.target===lightbox)closeLightbox();});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLightbox();});
 
-document.querySelector(".hub-demo")?.addEventListener("click",()=>{
-  toast.classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>toast.classList.remove("show"),5000);
-  document.querySelector(".creator-flow")?.scrollIntoView({behavior:"smooth",block:"center"});
+const portalModal=document.querySelector(".portal-modal");
+function openPortal(){
+  portalModal?.classList.add("open");
+  portalModal?.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+}
+function closePortal(){
+  portalModal?.classList.remove("open");
+  portalModal?.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+}
+document.querySelector(".portal-demo")?.addEventListener("click",openPortal);
+document.querySelector(".studio-login-trigger")?.addEventListener("click",openPortal);
+document.querySelector(".portal-modal-close")?.addEventListener("click",closePortal);
+portalModal?.addEventListener("click",e=>{if(e.target===portalModal)closePortal();});
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){
+    closeLightbox();
+    closeServiceModal();
+    closePortal();
+  }
 });
 
-const observer=new IntersectionObserver(entries=>{
+const revealObserver=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting)entry.target.classList.add("visible");
   });
-},{threshold:.14});
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+},{threshold:.13});
+document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
 
 const sections=[...document.querySelectorAll("main section[id]")];
-const navAnchors=[...document.querySelectorAll('.nav-links a[href^="#"]')];
+const navLinks=[...document.querySelectorAll('.main-nav a[href^="#"]')];
+
 const sectionObserver=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(!entry.isIntersecting)return;
-    navAnchors.forEach(a=>a.classList.toggle("active",a.getAttribute("href")===`#${entry.target.id}`));
+    navLinks.forEach(link=>{
+      link.classList.toggle("active",link.getAttribute("href")===`#${entry.target.id}`);
+    });
   });
-},{rootMargin:"-40% 0px -50% 0px"});
+},{rootMargin:"-42% 0px -48% 0px"});
+
 sections.forEach(section=>sectionObserver.observe(section));
