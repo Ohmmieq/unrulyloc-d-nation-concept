@@ -7,15 +7,15 @@ const serviceData={
   },
   repair:{
     title:"Loc Repairs",
-    copy:"Focused repair for thinning, weak or damaged locs. This gallery shows repair and maintenance work only — including before-and-after examples.",
+    copy:"Focused repair for thinning, weak or damaged locs. This gallery shows repair and restoration work only.",
     list:["Damage assessment","Weak-root reinforcement","Repair / reattachment","Maintenance planning"],
-    images:["assets/loc-repair-hq.webp","assets/loc-repair.webp"]
+    images:["https://d2ol7oe51mr4n9.cloudfront.net/user_3JbQqH5iuEcETSWaWccnJy9ajjk/a07a08e9-740e-4a32-9f46-26945f69a0c6.png","assets/loc-repair-hq.webp"]
   },
   retwist:{
     title:"Fresh Retwist",
-    copy:"Fresh retwists with clean parts, controlled tension and polished roots. No braids, no unrelated protective styles.",
-    list:["Fresh retwist","Clean root work","Defined parts","Healthy maintenance"],
-    images:["assets/blonde-style.webp","assets/styles.webp"]
+    copy:"Fresh retwists with clean parts, controlled tension and polished roots. This section is strictly real loc maintenance and styling.",
+    list:["Fresh retwist","Clean root work","Defined parts","Styled finish"],
+    images:["https://d2ol7oe51mr4n9.cloudfront.net/user_3JbQqH5iuEcETSWaWccnJy9ajjk/f253a0ed-8136-441e-8e54-8fafc2f0007d.png","assets/styles.webp"]
   },
   styles:{
     title:"Styles",
