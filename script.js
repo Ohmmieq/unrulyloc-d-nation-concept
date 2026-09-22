@@ -1,27 +1,27 @@
 const serviceData={
   starter:{
     title:"Starter Locs",
-    copy:"Begin your loc journey with a clean foundation and expert technique. Whether you want a natural look or a styled finish, we create locs that suit your lifestyle.",
-    list:["Clean parting & sectioning","Professional installation","Guidance on aftercare","A style that fits you"],
-    images:["assets/short-locs.webp","assets/starter-locs.webp"]
+    copy:"Begin your loc journey with a clean foundation and expert technique. The gallery stays strictly on true starter locs: comb coils, early formation and clean sectioning.",
+    list:["Comb coil starter locs","Clean parting & sectioning","Early-stage loc formation","Aftercare guidance"],
+    images:["https://i.pinimg.com/originals/6d/6c/4b/6d6c4b98947d2e2bd43ccf8228158f4c.jpg","https://i.pinimg.com/originals/92/f2/12/92f212730946d750d04e6d07a6424f06.jpg"]
   },
   repair:{
     title:"Loc Repairs",
-    copy:"Focused repair for thinning, weak or damaged locs. The goal is to restore structure while keeping the finished result natural and wearable.",
-    list:["Damage assessment","Weak-point reinforcement","Loc reattachment where suitable","Maintenance guidance"],
-    images:["assets/loc-repair-hq.webp","assets/loc-repair.webp"]
+    copy:"Focused repair for thinning, weak or damaged locs. This gallery shows repair and maintenance work only — including before-and-after examples.",
+    list:["Damage assessment","Weak-root reinforcement","Repair / reattachment","Maintenance planning"],
+    images:["https://dreadlockcentral.com/wp-content/uploads/2019/09/Dreadlock-Central-Loc-Extension-Repair-and-Reattachment-NYC-466.jpg","https://dreadshop.com/cdn/shop/articles/blog_dreadshop_maintenance.png?v=1721998317"]
   },
   retwist:{
     title:"Fresh Retwist",
-    copy:"Clean roots, controlled tension and a polished finish. Retwists are handled with healthy maintenance in mind, not just appearance.",
-    list:["Clean root work","Defined parting","Balanced tension","Optional finished style"],
-    images:["assets/fresh-retwist.webp"]
+    copy:"Fresh retwists with clean parts, controlled tension and polished roots. No braids, no unrelated protective styles.",
+    list:["Fresh retwist","Clean root work","Defined parts","Healthy maintenance"],
+    images:["https://i.pinimg.com/originals/31/29/94/312994100b86e3d2c333305b5560dd98.jpg","https://p19-lemon8-sign-useast5.tiktokcdn-us.com/tos-useast5-v-3931-tx/oUAkOB4hGgHeUo03HGLAkfbvwEeqOAHQIYADr9~tplv-pyavlv3z7u-text-logo%3AQG5hdHVyYWxoYWlyYnljYW5keQ%3D%3D%3Aq75.jpeg?lk3s=c7f08e79&source=lemon8_seo&x-expires=1775930400&x-signature=wP7lTpGQcoC5UDVOi2k77d6gu2I%3D"]
   },
   styles:{
     title:"Styles",
-    copy:"From understated everyday styling to bold statement finishes, each look is shaped around the client's loc length, density and personality.",
-    list:["Consultation","Loc styling","Statement finishes","Personalised look"],
-    images:["assets/styles.webp","assets/blonde-style.webp","assets/hero-curly-locs-hq.webp"]
+    copy:"Real loc styling only — curly locs, loc updos and finished dreadlock styles that still clearly read as locs.",
+    list:["Curly loc styles","Loc updos","Natural loc texture","Statement finishes"],
+    images:["https://i.pinimg.com/736x/a3/04/bb/a304bb8345afa9cc3aee601b567ba4a7.jpg","https://i.pinimg.com/originals/3c/61/a3/3c61a3492cd7758da29e0d646dae938f.jpg","https://i.pinimg.com/736x/7e/33/45/7e33450dc24501d5357f665549736c26.jpg"]
   }
 };
 
@@ -43,7 +43,8 @@ function renderService(key,scroll=false){
   list.innerHTML=d.list.map(x=>'<li>'+x+'</li>').join('');
   viewAll.textContent='View All '+d.title;
   document.querySelectorAll('.service-card,.tab').forEach(el=>el.classList.toggle('active',el.dataset.service===key));
-  thumbGrid.innerHTML=d.images.map((src,i)=>'<button class="thumb '+(i===0?'active':'')+'" data-i="'+i+'"><img loading="lazy" decoding="async" src="'+src+'" alt="'+d.title+' example"></button>').join('');
+  thumbGrid.innerHTML=d.images.map((src,i)=>'<button class="thumb '+(i===0?'active':'')+'" data-i="'+i+'"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="'+src+'" alt="'+d.title+' example"></button>').join('');
+  main.referrerPolicy='no-referrer';
   main.src=d.images[0];
   main.alt=d.title;
   count.textContent='01 / '+String(d.images.length).padStart(2,'0');
