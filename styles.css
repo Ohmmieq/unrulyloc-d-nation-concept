@@ -16,7 +16,7 @@ button{font:inherit}
 .concept-bar p{margin:0;opacity:.68}
 .site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 4vw;background:rgba(13,12,10,.84);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:12px}
-.brand-mark{display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--warm);border-radius:50%;font-family:"Cormorant Garamond",serif;font-size:22px;color:var(--warm)}
+.brand-mark{display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--warm);border-radius:50%;font-family:"Cormorant Garamond",serif;font-size:12px;font-family:Inter,sans-serif;font-weight:700;letter-spacing:.06em;color:var(--warm)}
 .brand-copy{display:flex;flex-direction:column;line-height:1}
 .brand-copy strong{font-family:"Cormorant Garamond",serif;font-size:23px;letter-spacing:.03em}
 .brand-copy small{font-size:9px;letter-spacing:.4em;margin-top:5px;color:var(--muted)}
@@ -28,7 +28,7 @@ button{font:inherit}
 .menu-toggle span{display:block;width:24px;height:1px;background:currentColor;margin:7px}
 .hero{position:relative;min-height:84vh;display:flex;align-items:flex-end;overflow:hidden;padding:9vw 6vw 8vw}
 .hero-media,.hero-overlay{position:absolute;inset:0}
-.hero-media{background-image:url("https://images.pexels.com/photos/15248406/pexels-photo-15248406.jpeg?auto=compress&cs=tinysrgb&w=1800");background-size:cover;background-position:center 35%;transform:scale(1.02)}
+.hero-media{background-image:url("https://images.pexels.com/photos/11051300/pexels-photo-11051300.jpeg?auto=compress&cs=tinysrgb&w=1800");background-size:cover;background-position:center 35%;transform:scale(1.02)}
 .hero-overlay{background:linear-gradient(90deg,rgba(10,9,7,.93) 0%,rgba(10,9,7,.72) 35%,rgba(10,9,7,.14) 72%),linear-gradient(0deg,rgba(10,9,7,.55),transparent 40%)}
 .hero-copy{position:relative;z-index:2;max-width:760px}
 .eyebrow{font-size:11px;letter-spacing:.22em;font-weight:600;color:var(--warm);margin:0 0 22px}
