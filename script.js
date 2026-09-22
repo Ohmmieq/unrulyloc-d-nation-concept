@@ -9,13 +9,13 @@ const serviceData={
     title:"Loc Repairs",
     copy:"Focused repair for thinning, weak or damaged locs. This gallery shows repair and maintenance work only — including before-and-after examples.",
     list:["Damage assessment","Weak-root reinforcement","Repair / reattachment","Maintenance planning"],
-    images:["https://dreadlockcentral.com/wp-content/uploads/2019/09/Dreadlock-Central-Loc-Extension-Repair-and-Reattachment-NYC-466.jpg","https://dreadshop.com/cdn/shop/articles/blog_dreadshop_maintenance.png?v=1721998317"]
+    images:["assets/loc-repair-hq.webp","assets/loc-repair.webp"]
   },
   retwist:{
     title:"Fresh Retwist",
     copy:"Fresh retwists with clean parts, controlled tension and polished roots. No braids, no unrelated protective styles.",
     list:["Fresh retwist","Clean root work","Defined parts","Healthy maintenance"],
-    images:["https://i.pinimg.com/originals/31/29/94/312994100b86e3d2c333305b5560dd98.jpg","https://p19-lemon8-sign-useast5.tiktokcdn-us.com/tos-useast5-v-3931-tx/oUAkOB4hGgHeUo03HGLAkfbvwEeqOAHQIYADr9~tplv-pyavlv3z7u-text-logo%3AQG5hdHVyYWxoYWlyYnljYW5keQ%3D%3D%3Aq75.jpeg?lk3s=c7f08e79&source=lemon8_seo&x-expires=1775930400&x-signature=wP7lTpGQcoC5UDVOi2k77d6gu2I%3D"]
+    images:["assets/fresh-retwist.webp","assets/styles.webp"]
   },
   styles:{
     title:"Styles",
