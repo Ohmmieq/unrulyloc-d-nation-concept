@@ -1,40 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="UNRULYLOC.D NATION — premium loc care, starter locs, repairs, retwists and styles in Nakuru." />
   <title>UNRULYLOC.D NATION</title>
-  <meta name="description" content="UNRULYLOC.D NATION — premium loc care, starter locs, repairs, retwists and styles.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.pexels.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="reference-stage" aria-label="UNRULYLOC.D NATION concept">
-    <img class="reference-image" src="assets/reference-layout.webp" alt="UNRULYLOC.D NATION premium loc care website">
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="UNRULYLOC.D home">
+      <strong>UNRULYLOC.D</strong><span>NATION</span>
+    </a>
+    <nav class="desktop-nav">
+      <a href="#home">Home</a><a href="#services">Services</a><a href="#featured">Work</a><a href="#process">Care</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="pill-btn" href="https://wa.me/254794597753" target="_blank" rel="noopener">Book a Session <span>→</span></a>
+  </header>
 
-    <a class="hotspot book top-book" href="https://wa.me/254794597753" target="_blank" aria-label="Book a session"></a>
-    <a class="hotspot book hero-book" href="https://wa.me/254794597753" target="_blank" aria-label="Book a session"></a>
-    <a class="hotspot book featured-book" href="https://wa.me/254794597753" target="_blank" aria-label="Book this service"></a>
-    <a class="hotspot book footer-book" href="https://wa.me/254794597753" target="_blank" aria-label="Book a session"></a>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">MORE THAN LOCS<br>IT'S A LIFESTYLE</p>
+        <h1>Good locs<br>have <em>attitude.</em></h1>
+        <p class="hero-text">Loc care, styling and restoration for real people. UNRULYLOC.D NATION is where precision meets personality — healthy locs, real confidence.</p>
+        <a class="gold-btn" href="https://wa.me/254794597753" target="_blank" rel="noopener">Book a Session <span>→</span></a>
+        <div class="hero-values"><span>HEALTHY LOCS</span><b>•</b><span>BOLDER PEOPLE</span><b>•</b><span>UNRULY ALWAYS</span></div>
+      </div>
+      <div class="hero-image-wrap">
+        <img class="hero-image" fetchpriority="high" src="https://images.pexels.com/photos/14547369/pexels-photo-14547369.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Woman with styled dreadlocks and flowers">
+      </div>
+      <aside class="hero-note">
+        <div class="script">Locs<br>Build<br>Different.</div>
+        <div class="note-line"></div>
+        <div class="note-words"><span>CULTURE</span><span>CONFIDENCE</span><span>DISCIPLINE</span><span>CREATIVITY</span><span>COMMUNITY</span></div>
+      </aside>
+    </section>
 
-    <button class="hotspot service starter" data-service="starter" aria-label="Open Starter Locs"></button>
-    <button class="hotspot service repair" data-service="repair" aria-label="Open Loc Repairs"></button>
-    <button class="hotspot service retwist" data-service="retwist" aria-label="Open Fresh Retwist"></button>
-    <button class="hotspot service styles" data-service="styles" aria-label="Open Styles"></button>
+    <section class="services" id="services">
+      <p class="eyebrow">OUR SERVICES</p>
+      <div class="service-grid">
+        <button class="service-card active" data-service="starter">
+          <img loading="lazy" decoding="async" src="https://images.pexels.com/photos/6606916/pexels-photo-6606916.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Starter locs">
+          <span class="shade"></span>
+          <div class="service-meta"><span class="num">01</span><div><h3>Starter Locs</h3><p>Start your journey the right way.</p></div><b>→</b></div>
+        </button>
+        <button class="service-card" data-service="repair">
+          <img loading="lazy" decoding="async" src="https://images.pexels.com/photos/15248411/pexels-photo-15248411.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Loc repair and restoration">
+          <span class="shade"></span>
+          <div class="service-meta"><span class="num">02</span><div><h3>Loc Repairs</h3><p>Restore. Strengthen. Rebuild.</p></div><b>→</b></div>
+        </button>
+        <button class="service-card" data-service="retwist">
+          <img loading="lazy" decoding="async" src="https://images.pexels.com/photos/13911805/pexels-photo-13911805.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Fresh retwist">
+          <span class="shade"></span>
+          <div class="service-meta"><span class="num">03</span><div><h3>Fresh Retwist</h3><p>Clean. Crisp. Long-lasting.</p></div><b>→</b></div>
+        </button>
+        <button class="service-card" data-service="styles">
+          <img loading="lazy" decoding="async" src="https://images.pexels.com/photos/17542285/pexels-photo-17542285.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Loc styling">
+          <span class="shade"></span>
+          <div class="service-meta"><span class="num">04</span><div><h3>Styles</h3><p>Express your unique style.</p></div><b>→</b></div>
+        </button>
+      </div>
+    </section>
+
+    <section class="featured" id="featured">
+      <div class="featured-copy">
+        <p class="eyebrow">FEATURED SERVICE</p>
+        <h2 id="featureTitle">Starter Locs</h2>
+        <p id="featureCopy">Begin your loc journey with a clean foundation and expert technique. Whether you want a natural look or a styled finish, we create locs that suit your lifestyle.</p>
+        <ul id="featureList">
+          <li>Clean parting & sectioning</li><li>Professional installation</li><li>Guidance on aftercare</li><li>A style that fits you</li>
+        </ul>
+        <div class="feature-actions">
+          <a id="featureBook" class="gold-btn" href="https://wa.me/254794597753" target="_blank" rel="noopener">Book This Service <span>→</span></a>
+          <button id="viewAll" class="outline-rect">View All Starter Locs</button>
+        </div>
+        <div class="service-tabs">
+          <button class="tab active" data-service="starter">STARTER LOCS</button>
+          <button class="tab" data-service="repair">LOC REPAIRS</button>
+          <button class="tab" data-service="retwist">FRESH RETWIST</button>
+          <button class="tab" data-service="styles">STYLES</button>
+        </div>
+      </div>
+
+      <div class="featured-gallery">
+        <div class="main-frame">
+          <img id="featureMain" loading="eager" decoding="async" src="https://images.pexels.com/photos/20396517/pexels-photo-20396517.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Featured starter locs">
+        </div>
+        <div class="thumb-grid" id="thumbGrid">
+          <button class="thumb active" data-src="https://images.pexels.com/photos/20396517/pexels-photo-20396517.jpeg?auto=compress&cs=tinysrgb&w=1200"><img loading="lazy" src="https://images.pexels.com/photos/20396517/pexels-photo-20396517.jpeg?auto=compress&cs=tinysrgb&w=500" alt=""></button>
+          <button class="thumb" data-src="https://images.pexels.com/photos/14009976/pexels-photo-14009976.jpeg?auto=compress&cs=tinysrgb&w=1200"><img loading="lazy" src="https://images.pexels.com/photos/14009976/pexels-photo-14009976.jpeg?auto=compress&cs=tinysrgb&w=500" alt=""></button>
+          <button class="thumb" data-src="https://images.pexels.com/photos/22605218/pexels-photo-22605218.png?auto=compress&cs=tinysrgb&w=1200"><img loading="lazy" src="https://images.pexels.com/photos/22605218/pexels-photo-22605218.png?auto=compress&cs=tinysrgb&w=500" alt=""></button>
+          <button class="thumb" data-src="https://images.pexels.com/photos/10883303/pexels-photo-10883303.jpeg?auto=compress&cs=tinysrgb&w=1200"><img loading="lazy" src="https://images.pexels.com/photos/10883303/pexels-photo-10883303.jpeg?auto=compress&cs=tinysrgb&w=500" alt=""></button>
+        </div>
+        <div class="gallery-foot"><span id="galleryCount">01 / 04</span><div class="gallery-line"></div><button id="prevImg">←</button><button id="nextImg">→</button></div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="process-visual">
+        <img loading="lazy" decoding="async" src="https://images.pexels.com/photos/18523828/pexels-photo-18523828.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Loctician working on dreadlocks">
+        <div class="process-overlay"><p class="eyebrow">THE PROCESS</p><h2>More Than A Style.</h2><button class="play" aria-label="Play concept video">▶</button></div>
+      </div>
+      <div class="process-copy">
+        <p class="eyebrow">A JOURNEY, NOT JUST A STYLE</p>
+        <p>From starters to fully matured locs, every stage is a story. This space is built to show real transformations and the people who trust UNRULYLOC.D NATION.</p>
+        <div class="mini-row">
+          <img loading="lazy" src="https://images.pexels.com/photos/13911805/pexels-photo-13911805.jpeg?auto=compress&cs=tinysrgb&w=320" alt="">
+          <img loading="lazy" src="https://images.pexels.com/photos/6665403/pexels-photo-6665403.jpeg?auto=compress&cs=tinysrgb&w=320" alt="">
+          <img loading="lazy" src="https://images.pexels.com/photos/14009976/pexels-photo-14009976.jpeg?auto=compress&cs=tinysrgb&w=320" alt="">
+          <img loading="lazy" src="https://images.pexels.com/photos/22605218/pexels-photo-22605218.png?auto=compress&cs=tinysrgb&w=320" alt="">
+        </div>
+        <div class="stats"><div><strong>100+</strong><span>Happy Clients</span></div><div><strong>4+</strong><span>Years Experience</span></div><div><strong>Real</strong><span>Transformations</span></div></div>
+        <div class="script process-script">Different<br>People.<br>Same Power.</div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-copy">
+        <p class="eyebrow">LET'S CONNECT</p>
+        <h2>Book Your Session</h2>
+        <p>Ready for your next look? Let's make it happen.</p>
+        <a class="gold-btn" href="https://wa.me/254794597753" target="_blank" rel="noopener">Book a Session <span>→</span></a>
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/unrulocnationke/" target="_blank" rel="noopener"><span>◎</span><b>Instagram</b></a>
+        <a href="https://www.tiktok.com/@locticiannakuru1" target="_blank" rel="noopener"><span>♪</span><b>TikTok</b></a>
+        <a href="https://wa.me/254794597753" target="_blank" rel="noopener"><span>◉</span><b>WhatsApp</b></a>
+        <a href="mailto:unrulyloc.dnation@gmail.com"><span>✉</span><b>Email</b></a>
+      </div>
+      <div class="contact-image"><img loading="lazy" src="https://images.pexels.com/photos/6337279/pexels-photo-6337279.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Dreadlocks portrait"></div>
+    </section>
   </main>
 
-  <section class="service-drawer" id="serviceDrawer" aria-hidden="true">
-    <div class="drawer-inner">
-      <button class="drawer-close" aria-label="Close">×</button>
-      <p class="drawer-kicker"></p>
-      <h2 class="drawer-title"></h2>
-      <p class="drawer-copy"></p>
-      <div class="drawer-gallery"></div>
-      <div class="drawer-actions">
-        <a class="drawer-book" href="https://wa.me/254794597753" target="_blank">Book / Inquire</a>
-        <button class="drawer-back">Back to page</button>
-      </div>
-    </div>
-  </section>
+  <footer><div><strong>UNRULYLOC.D NATION</strong><span>Healthy Locs. Bolder People. Unruly Always.</span></div><div>Made Different • Nakuru, Kenya</div></footer>
 
   <script src="script.js"></script>
 </body>
