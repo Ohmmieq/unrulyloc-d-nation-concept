@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="UNRULYLOC.D NATION — loc care, restoration, repairs, retwists and styles in Nakuru." />
+  <meta name="description" content="UNRULYLOC.D NATION — loc care, repairs, retwists, starter locs and styling in Nakuru." />
   <title>UNRULYLOC.D NATION — Concept</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,20 +12,16 @@
 </head>
 <body>
   <div class="topline">
-    <span>MORE THAN LOCS</span><b>•</b><span>IT'S A LIFESTYLE</span><b>•</b>
-    <span>UNRULYLOC.D NATION</span><b>•</b><span>HEALTHY LOCS. BOLDER PEOPLE.</span>
+    <span>MORE THAN LOCS</span><b>•</b><span>IT'S A LIFESTYLE</span><b>•</b><span>UNRULYLOC.D NATION</span><b>•</b><span>HEALTHY LOCS. BOLDER PEOPLE.</span>
   </div>
 
   <header class="header" id="home">
-    <a class="logo" href="#home">
-      <strong>UNRULYLOC.D</strong>
-      <span>NATION</span>
-    </a>
+    <a class="logo" href="#home"><strong>UNRULYLOC.D</strong><span>NATION</span></a>
     <button class="menu" aria-label="Open navigation" aria-expanded="false"><i></i><i></i></button>
     <nav class="nav">
       <a href="#home">Home</a>
       <a href="#services">Services</a>
-      <a href="#work">Work</a>
+      <a href="#service-work">Work</a>
       <a href="#care">Care</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -43,7 +39,7 @@
       </div>
 
       <div class="hero-photo">
-        <img src="assets/fresh-retwist.webp" alt="Fresh retwist and styled locs">
+        <img src="assets/styles.webp" alt="Styled locs">
         <div class="hero-photo-shade"></div>
       </div>
 
@@ -57,85 +53,72 @@
     <section class="services" id="services">
       <div class="section-head reveal">
         <div><p class="micro">OUR SERVICES</p><h2>Expert Care. Real Results.</h2></div>
-        <div class="head-note">From starters to styles, every service is designed with health, precision and individuality in mind.<a href="#service-grid">ALL SERVICES →</a></div>
+        <div class="head-note">Choose a service to see the work, the journey and the exact type of results attached to it.</div>
       </div>
 
-      <div class="service-grid" id="service-grid">
-        <article class="service-card reveal" data-service="starter">
-          <button class="service-image service-trigger" aria-label="View Starter Locs details">
-            <img src="assets/starter-locs.webp" alt="Starter locs">
-          </button>
+      <div class="service-grid">
+        <article class="service-card active reveal" data-service="starter">
+          <button class="service-image service-select" aria-label="View Starter Locs work"><img src="assets/starter-locs.webp" alt="Starter locs"></button>
           <div class="service-body">
             <div class="service-title"><span>01</span><h3>Starter Locs</h3></div>
-            <p>Start your journey the right way. Clean parts, healthy foundations and expert technique.</p>
-            <button class="learn service-trigger">LEARN MORE →</button>
+            <p>Clean parts, healthy foundations and the right start for the journey.</p>
+            <button class="learn service-select">VIEW THE JOURNEY →</button>
           </div>
         </article>
 
         <article class="service-card reveal" data-service="repair">
-          <button class="service-image service-trigger" aria-label="View Loc Repairs details">
-            <img src="assets/loc-repair.webp" alt="Loc repair and restoration">
-          </button>
+          <button class="service-image service-select" aria-label="View Loc Repairs work"><img src="assets/loc-repair.webp" alt="Loc repair"></button>
           <div class="service-body">
             <div class="service-title"><span>02</span><h3>Loc Repairs</h3></div>
-            <p>Restore. Strengthen. Rebuild. From thinning locs to damage control, bring your locs back to life.</p>
-            <button class="learn service-trigger">LEARN MORE →</button>
+            <p>Restore weak, thinning or damaged locs with focused repair work.</p>
+            <button class="learn service-select">SEE REPAIRS →</button>
           </div>
         </article>
 
         <article class="service-card reveal" data-service="retwist">
-          <button class="service-image service-trigger" aria-label="View Fresh Retwist details">
-            <img src="assets/fresh-retwist.webp" alt="Fresh retwist">
-          </button>
+          <button class="service-image service-select" aria-label="View Fresh Retwist work"><img src="assets/fresh-retwist.webp" alt="Fresh retwist"></button>
           <div class="service-body">
             <div class="service-title"><span>03</span><h3>Fresh Retwist</h3></div>
-            <p>Clean. Crisp. Long-lasting. Keep your locs healthy, sharp and thriving.</p>
-            <button class="learn service-trigger">LEARN MORE →</button>
+            <p>Clean, crisp root work that keeps the locs sharp and healthy.</p>
+            <button class="learn service-select">SEE RETWISTS →</button>
           </div>
         </article>
 
         <article class="service-card reveal" data-service="styles">
-          <button class="service-image service-trigger" aria-label="View Styles details">
-            <img src="assets/styles.webp" alt="Styled locs">
-          </button>
+          <button class="service-image service-select" aria-label="View Styles work"><img src="assets/styles.webp" alt="Loc style"></button>
           <div class="service-body">
             <div class="service-title"><span>04</span><h3>Styles</h3></div>
-            <p>Express yourself. From everyday looks to statement styles, bring your vision to life.</p>
-            <button class="learn service-trigger">LEARN MORE →</button>
+            <p>Everyday looks to statement styles built around the person wearing them.</p>
+            <button class="learn service-select">SEE STYLES →</button>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="lookbook" id="work">
-      <div class="lookbook-head reveal">
-        <div><p class="micro">THE LOOKBOOK</p><h2>Real Locs. Real People.</h2></div>
-        <div class="gallery-controls">
-          <button class="filter active" data-filter="all">ALL</button>
-          <button class="filter" data-filter="men">MEN</button>
-          <button class="filter" data-filter="women">WOMEN</button>
-          <button class="filter" data-filter="starter">STARTER LOCS</button>
-          <button class="filter" data-filter="styles">STYLES</button>
+    <section class="service-work" id="service-work">
+      <div class="work-head reveal">
+        <div>
+          <p class="micro work-kicker">STARTER LOCS</p>
+          <h2 class="work-title">The Starter Journey.</h2>
+          <p class="work-copy">See the foundation, early stages and how the locs develop with proper care.</p>
+        </div>
+        <div class="work-actions">
+          <button class="work-tab active" data-tab="photos">PHOTOS</button>
+          <button class="work-tab" data-tab="videos">VIDEOS</button>
+          <a class="outline-btn inquiry-link" href="https://wa.me/254794597753" target="_blank" rel="noopener">Ask About This <span>→</span></a>
         </div>
       </div>
 
-      <div class="gallery">
-        <button class="gallery-item reveal" data-category="starter women" data-full="assets/short-locs.webp" data-title="Starter Locs">
-          <img src="assets/short-locs.webp" alt="Starter locs">
-          <span class="scribble">DIFFERENT HAIR.<br>SAME POWER.</span>
-        </button>
-        <button class="gallery-item reveal" data-category="men styles" data-full="assets/fresh-retwist.webp" data-title="Fresh Retwist">
-          <img src="assets/fresh-retwist.webp" alt="Fresh male retwist">
-          <span class="scribble">LOCS LIVE<br>LONGER.</span>
-        </button>
-        <button class="gallery-item reveal" data-category="women styles" data-full="assets/styles.webp" data-title="Loc Style">
-          <img src="assets/styles.webp" alt="Styled red locs">
-          <span class="scribble">REAL PEOPLE.<br>REAL LOCS.</span>
-        </button>
-        <button class="gallery-item reveal" data-category="starter" data-full="assets/starter-locs.webp" data-title="Healthy Starter Locs">
-          <img src="assets/starter-locs.webp" alt="Healthy starter locs">
-          <span class="scribble">HEALTHY LOCS.<br>HAPPIER YOU.</span>
-        </button>
+      <div class="media-grid reveal" id="media-grid"></div>
+
+      <div class="journey reveal">
+        <div class="journey-index">01</div>
+        <div>
+          <p class="micro">THE JOURNEY</p>
+          <h3 class="journey-title">A clean foundation changes everything.</h3>
+          <p class="journey-copy">Starter locs are not just the first appointment. They are the beginning of a process — sectioning, formation, maintenance and patience.</p>
+        </div>
+        <a class="gold-btn journey-book" href="https://wa.me/254794597753" target="_blank" rel="noopener">Book Starter Locs <span>→</span></a>
       </div>
     </section>
 
@@ -143,26 +126,18 @@
       <div class="care-copy reveal">
         <p class="micro">LOC CARE ESSENTIALS</p>
         <h2>Nourish What<br>Moves You.</h2>
-        <p>Premium hair growth oil for stronger, healthier, thriving locs.</p>
+        <p>Hair growth oil and loc-care products stay as a premium teaser until the product line is ready.</p>
         <button class="gold-btn disabled-btn">COMING SOON <span>→</span></button>
       </div>
-
       <div class="product-stage reveal">
-        <div class="bottle">
-          <div class="dropper"></div>
-          <span>UNRULYLOC.D</span>
-          <small>NATION</small>
-          <b>LOC GROWTH OIL</b>
-        </div>
+        <div class="bottle"><div class="dropper"></div><span>UNRULYLOC.D</span><small>NATION</small><b>LOC GROWTH OIL</b></div>
       </div>
-
       <div class="benefits reveal">
         <div><i>◌</i><span>NOURISHES<br>THE SCALP</span></div>
         <div><i>♧</i><span>PROMOTES<br>HEALTHY GROWTH</span></div>
         <div><i>✺</i><span>STRENGTHENS<br>LOCS</span></div>
         <div><i>♧</i><span>LOC CARE<br>FOCUSED</span></div>
       </div>
-
       <div class="care-quote reveal">MORE<br>THAN LOCS.<br>IT'S A<br>LIFESTYLE.</div>
     </section>
 
@@ -170,17 +145,27 @@
       <div class="portal-copy reveal">
         <p class="micro">FOR THE TEAM</p>
         <h2>Studio Portal <span>♙</span></h2>
-        <p>A private owner-only space to upload client photos and videos, manage content and keep the gallery fresh — without touching code.</p>
+        <p>A private owner-only space to upload work, choose the service it belongs to and keep each service gallery fresh without touching code.</p>
         <button class="outline-btn owner-login">OWNER LOGIN <span>→</span></button>
       </div>
+
       <div class="portal-screen reveal">
-        <div class="portal-nav"><strong>UNRULYLOC.D</strong><span>Dashboard</span><span>Uploads</span><span>Gallery</span><span>Services</span></div>
+        <div class="portal-nav"><strong>UNRULYLOC.D</strong><span>Dashboard</span><span class="active">Upload Work</span><span>Gallery</span><span>Services</span></div>
         <div class="portal-main">
-          <div class="upload-box"><b>☁</b><strong>Upload New Work</strong><small>Drag & drop photos or videos</small></div>
-          <div class="portal-thumbs"><img src="assets/starter-locs.webp" alt=""><img src="assets/fresh-retwist.webp" alt=""><img src="assets/styles.webp" alt=""></div>
+          <div class="upload-form">
+            <div class="upload-box"><b>＋</b><strong>Upload photo or video</strong><small>Choose media from device</small></div>
+            <label>ADD TO
+              <select>
+                <option>Starter Locs</option><option>Loc Repairs</option><option>Fresh Retwist</option><option>Styles</option>
+              </select>
+            </label>
+            <label>CAPTION<input type="text" placeholder="Fresh retwist • clean parts • finished look"></label>
+            <button class="publish-demo">PUBLISH TO WEBSITE</button>
+          </div>
         </div>
       </div>
-      <div class="portal-words reveal"><span>DOCUMENT</span><span>CREATE</span><span>INSPIRE</span><span>REPEAT</span></div>
+
+      <div class="portal-words reveal"><span>UPLOAD</span><span>CATEGORISE</span><span>PUBLISH</span><span>REPEAT</span></div>
     </section>
 
     <section class="contact" id="contact">
@@ -200,32 +185,13 @@
     <p>CONCEPT PREVIEW • BUILT TO GROW WITH THE BRAND</p>
   </footer>
 
-  <div class="modal service-modal" aria-hidden="true">
-    <div class="modal-card">
-      <button class="modal-close" aria-label="Close">×</button>
-      <p class="micro modal-kicker">SERVICE</p>
-      <h3 class="modal-title"></h3>
-      <p class="modal-copy"></p>
-      <div class="modal-tags"></div>
-      <a class="gold-btn" href="https://wa.me/254794597753" target="_blank" rel="noopener">Ask on WhatsApp →</a>
-    </div>
-  </div>
-
-  <div class="modal image-modal" aria-hidden="true">
-    <button class="modal-close image-close" aria-label="Close">×</button>
+  <div class="image-modal" aria-hidden="true">
+    <button class="modal-close" aria-label="Close">×</button>
     <img src="" alt="">
     <p></p>
   </div>
 
-  <div class="modal portal-modal" aria-hidden="true">
-    <div class="modal-card">
-      <button class="modal-close portal-close" aria-label="Close">×</button>
-      <p class="micro">OWNER-ONLY UPGRADE</p>
-      <h3>Private Studio Portal</h3>
-      <p>This concept can become a secure owner login where new client photos, videos and captions are uploaded directly to the website gallery.</p>
-      <div class="modal-tags"><span>LOGIN</span><span>UPLOAD</span><span>PUBLISH</span><span>MANAGE</span></div>
-    </div>
-  </div>
+  <div class="toast" aria-live="polite">Published to the selected service gallery — concept preview.</div>
 
   <script src="script.js"></script>
 </body>
