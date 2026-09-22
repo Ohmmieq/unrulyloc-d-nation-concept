@@ -5,99 +5,60 @@ document.querySelectorAll(".nav a").forEach(a=>a.addEventListener("click",()=>na
 
 const serviceData={
   starter:{
-    kicker:"STARTER LOCS",title:"The Starter Journey.",index:"01",
-    copy:"See the foundation, early stages and how the locs develop with proper care.",
-    journeyTitle:"A clean foundation changes everything.",
-    journeyCopy:"Starter locs are not just the first appointment. They are the beginning of a process — sectioning, formation, maintenance and patience.",
+    kicker:"STARTER LOCS",
+    title:"Starter Locs",
+    copy:"A focused gallery for the beginning of the loc journey — foundations, early stages and progress.",
+    storyTitle:"Start clean. Grow with intention.",
+    storyCopy:"This section becomes the visual record of starter-loc clients over time. New starter work uploaded in the Studio Portal lands here automatically.",
     cta:"Book Starter Locs",
-    photos:[
-      ["assets/starter-locs.webp","Starter loc foundation"],
-      ["assets/short-locs.webp","Early starter loc stage"],
-      ["assets/blonde-style.webp","A styled loc outcome"]
+    media:[
+      ["assets/short-locs.webp","Starter loc progress"],
+      ["assets/starter-locs.webp","Healthy loc foundation"]
     ]
   },
   repair:{
-    kicker:"LOC REPAIRS",title:"Repair Work.",index:"02",
-    copy:"See damaged, thinning or weak locs and the repair-focused work used to bring structure back.",
-    journeyTitle:"Repair should preserve what can still be saved.",
-    journeyCopy:"The repair process starts with the weak point, then reinforces or reconnects only where needed. The goal is strength without unnecessary overworking.",
+    kicker:"LOC REPAIRS",
+    title:"Loc Repairs",
+    copy:"Repair work belongs here — weak points, thinning locs, reconstruction and the finished result.",
+    storyTitle:"Restore what can be saved.",
+    storyCopy:"The repair gallery is separate from every other service, so clients looking for restoration can see only relevant repair work.",
     cta:"Ask About Repairs",
-    photos:[
-      ["assets/loc-repair.webp","Loc repair detail"],
-      ["assets/starter-locs.webp","Loc structure detail"],
-      ["assets/fresh-retwist.webp","Clean repaired finish"]
+    media:[
+      ["assets/loc-repair.webp","Repair detail"],
+      ["assets/starter-locs.webp","Restored structure"]
     ]
   },
   retwist:{
-    kicker:"FRESH RETWIST",title:"Fresh Retwists.",index:"03",
-    copy:"Clean parts, crisp root work and finished looks attached specifically to retwist appointments.",
-    journeyTitle:"Maintenance keeps the crown sharp.",
-    journeyCopy:"A retwist is about control, tension and clean sectioning. The finished look should be neat without compromising healthy growth.",
+    kicker:"FRESH RETWIST",
+    title:"Fresh Retwists",
+    copy:"Clean parts, crisp roots and finished maintenance work — all in one retwist-only gallery.",
+    storyTitle:"Maintenance should still look premium.",
+    storyCopy:"Every fresh retwist photo or video uploaded under Fresh Retwist appears here, keeping this service page current without duplicating the homepage.",
     cta:"Book a Retwist",
-    photos:[
-      ["assets/fresh-retwist.webp","Fresh retwist"],
-      ["assets/loc-repair.webp","Detailed root work"],
-      ["assets/styles.webp","Retwist styled finish"]
+    media:[
+      ["assets/fresh-retwist.webp","Fresh retwist finish"],
+      ["assets/loc-repair.webp","Clean root work"]
     ]
   },
   styles:{
-    kicker:"STYLES",title:"Styled Locs.",index:"04",
-    copy:"The styling gallery — different people, different lengths and different ways to wear locs.",
-    journeyTitle:"The style should still look like you.",
-    journeyCopy:"Styles are matched to the client's loc length, density and personality — from simple everyday looks to statement finishes.",
+    kicker:"STYLES",
+    title:"Styles",
+    copy:"A dedicated style gallery — different lengths, finishes and personalities, without mixing in repair or starter-loc work.",
+    storyTitle:"Different locs. Different energy.",
+    storyCopy:"This is where the expressive work lives. New style uploads can be added directly from the owner portal and tagged to Styles.",
     cta:"Ask About a Style",
-    photos:[
-      ["assets/styles.webp","Statement loc style"],
+    media:[
       ["assets/blonde-style.webp","Blonde loc style"],
       ["assets/short-locs.webp","Short loc styling"],
-      ["assets/fresh-retwist.webp","Styled retwist"]
+      ["assets/hero-curly-locs-hq.webp","Curly loc styling"]
     ]
   }
 };
 
-let currentService="starter";
-let currentTab="photos";
-const mediaGrid=document.querySelector("#media-grid");
+const extension=document.querySelector("#service-extension");
+const gallery=document.querySelector("#extension-gallery");
 const imageModal=document.querySelector(".image-modal");
-
-function renderService(){
-  const d=serviceData[currentService];
-  document.querySelector(".work-kicker").textContent=d.kicker;
-  document.querySelector(".work-title").textContent=d.title;
-  document.querySelector(".work-copy").textContent=d.copy;
-  document.querySelector(".journey-index").textContent=d.index;
-  document.querySelector(".journey-title").textContent=d.journeyTitle;
-  document.querySelector(".journey-copy").textContent=d.journeyCopy;
-  document.querySelector(".journey-book").innerHTML=d.cta+' <span>→</span>';
-  document.querySelectorAll(".service-card").forEach(c=>c.classList.toggle("active",c.dataset.service===currentService));
-
-  if(currentTab==="videos"){
-    mediaGrid.innerHTML='<div class="empty-video"><div><strong>Video uploads will live here.</strong><span>The owner portal can attach videos directly to '+d.kicker.toLowerCase()+'.</span></div></div>';
-    return;
-  }
-  mediaGrid.innerHTML=d.photos.map(([src,label])=>`
-    <button class="media-card" data-src="${src}" data-title="${label}">
-      <img src="${src}" alt="${label}">
-      <span class="media-label">${label}</span>
-    </button>`).join("");
-  document.querySelectorAll(".media-card").forEach(card=>card.addEventListener("click",()=>openImage(card.dataset.src,card.dataset.title)));
-}
-
-document.querySelectorAll(".service-card").forEach(card=>{
-  card.querySelectorAll(".service-select").forEach(btn=>btn.addEventListener("click",()=>{
-    currentService=card.dataset.service;
-    currentTab="photos";
-    document.querySelectorAll(".work-tab").forEach(t=>t.classList.toggle("active",t.dataset.tab==="photos"));
-    renderService();
-    document.querySelector("#service-work").scrollIntoView({behavior:"smooth",block:"start"});
-  }));
-});
-
-document.querySelectorAll(".work-tab").forEach(tab=>tab.addEventListener("click",()=>{
-  currentTab=tab.dataset.tab;
-  document.querySelectorAll(".work-tab").forEach(t=>t.classList.toggle("active",t===tab));
-  renderService();
-}));
+let currentService=null;
 
 function openImage(src,title){
   imageModal.querySelector("img").src=src;
@@ -107,10 +68,43 @@ function openImage(src,title){
   imageModal.setAttribute("aria-hidden","false");
   document.body.style.overflow="hidden";
 }
-function closeImage(){imageModal.classList.remove("open");imageModal.setAttribute("aria-hidden","true");document.body.style.overflow="";}
+function closeImage(){
+  imageModal.classList.remove("open");
+  imageModal.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+}
 document.querySelector(".modal-close")?.addEventListener("click",closeImage);
 imageModal?.addEventListener("click",e=>{if(e.target===imageModal)closeImage()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeImage()});
+
+function renderExtension(key){
+  const d=serviceData[key];
+  currentService=key;
+  extension.hidden=false;
+  document.querySelector(".extension-kicker").textContent=d.kicker;
+  document.querySelector(".extension-title").textContent=d.title;
+  document.querySelector(".extension-copy").textContent=d.copy;
+  document.querySelector(".extension-story-title").textContent=d.storyTitle;
+  document.querySelector(".extension-story-copy").textContent=d.storyCopy;
+  document.querySelector(".extension-book").innerHTML=d.cta+' <span>→</span>';
+  gallery.innerHTML=d.media.map(([src,label])=>`
+    <button class="extension-media" data-src="${src}" data-title="${label}">
+      <img src="${src}" alt="${label}">
+      <span>${label}</span>
+    </button>`).join("");
+  gallery.querySelectorAll(".extension-media").forEach(item=>item.addEventListener("click",()=>openImage(item.dataset.src,item.dataset.title)));
+  document.querySelectorAll(".service-card").forEach(card=>card.classList.toggle("active",card.dataset.service===key));
+  requestAnimationFrame(()=>extension.scrollIntoView({behavior:"smooth",block:"nearest"}));
+}
+
+document.querySelectorAll(".service-card").forEach(card=>{
+  card.querySelectorAll(".service-select").forEach(btn=>btn.addEventListener("click",()=>renderExtension(card.dataset.service)));
+});
+document.querySelector(".extension-close")?.addEventListener("click",()=>{
+  extension.hidden=true;
+  currentService=null;
+  document.querySelectorAll(".service-card").forEach(card=>card.classList.remove("active"));
+});
 
 const toast=document.querySelector(".toast");
 let toastTimer;
@@ -127,5 +121,3 @@ const sections=[...document.querySelectorAll("main section[id]")];
 const navLinks=[...document.querySelectorAll('.nav a[href^="#"]')];
 const secObs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")===`#${e.target.id}`))}),{rootMargin:"-42% 0px -48% 0px"});
 sections.forEach(s=>secObs.observe(s));
-
-renderService();
