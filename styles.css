@@ -20,3 +20,8 @@ footer{padding:22px 4vw;display:flex;justify-content:space-between;gap:20px;colo
 .hero-image{object-position:58% 42% !important}
 .hero-image-wrap{background:#0a0908}
 @media(max-width:640px){.hero-image{object-position:62% 40% !important}}
+
+/* Final local-image framing */
+.hero-image{object-position:center 38% !important}
+.service-card[data-service="repair"] img{object-position:center 45%}
+.service-card[data-service="retwist"] img{object-position:center 30%}
