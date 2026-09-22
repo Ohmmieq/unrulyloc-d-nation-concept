@@ -7,50 +7,47 @@ const serviceData={
   starter:{
     kicker:"STARTER LOCS",
     title:"Starter Locs",
-    copy:"A focused gallery for the beginning of the loc journey — foundations, early stages and progress.",
-    storyTitle:"Start clean. Grow with intention.",
-    storyCopy:"This section becomes the visual record of starter-loc clients over time. New starter work uploaded in the Studio Portal lands here automatically.",
+    copy:"Only starter-loc work belongs here — the beginning stage, early formation and progress as the locs mature.",
+    storyTitle:"A clean start gives the locs room to become.",
+    storyCopy:"This gallery grows as new starter-loc clients are added. The owner can upload each photo or video and tag it directly to Starter Locs.",
     cta:"Book Starter Locs",
     media:[
-      ["assets/short-locs.webp","Starter loc progress"],
-      ["assets/starter-locs.webp","Healthy loc foundation"]
+      ["assets/short-locs.webp","Starter loc stage"]
     ]
   },
   repair:{
     kicker:"LOC REPAIRS",
     title:"Loc Repairs",
-    copy:"Repair work belongs here — weak points, thinning locs, reconstruction and the finished result.",
-    storyTitle:"Restore what can be saved.",
-    storyCopy:"The repair gallery is separate from every other service, so clients looking for restoration can see only relevant repair work.",
+    copy:"A focused repair portfolio — damaged areas, weak points and restored structure without mixing in unrelated styles.",
+    storyTitle:"Repair work should show the actual change.",
+    storyCopy:"Every repair upload can live here so a client looking for restoration sees repair examples immediately.",
     cta:"Ask About Repairs",
     media:[
-      ["assets/loc-repair.webp","Repair detail"],
-      ["assets/starter-locs.webp","Restored structure"]
+      ["assets/loc-repair-hq.webp","Loc repair detail"]
     ]
   },
   retwist:{
     kicker:"FRESH RETWIST",
     title:"Fresh Retwists",
-    copy:"Clean parts, crisp roots and finished maintenance work — all in one retwist-only gallery.",
-    storyTitle:"Maintenance should still look premium.",
-    storyCopy:"Every fresh retwist photo or video uploaded under Fresh Retwist appears here, keeping this service page current without duplicating the homepage.",
+    copy:"Clean parts, crisp roots and polished maintenance work. This section stays strictly about retwists.",
+    storyTitle:"Clean maintenance. Clear result.",
+    storyCopy:"Fresh retwist photos and videos uploaded from the owner portal appear here and nowhere else unless the owner chooses another category.",
     cta:"Book a Retwist",
     media:[
-      ["assets/fresh-retwist.webp","Fresh retwist finish"],
-      ["assets/loc-repair.webp","Clean root work"]
+      ["assets/fresh-retwist.webp","Fresh retwist"]
     ]
   },
   styles:{
     kicker:"STYLES",
     title:"Styles",
-    copy:"A dedicated style gallery — different lengths, finishes and personalities, without mixing in repair or starter-loc work.",
-    storyTitle:"Different locs. Different energy.",
-    storyCopy:"This is where the expressive work lives. New style uploads can be added directly from the owner portal and tagged to Styles.",
+    copy:"The expressive side of the portfolio — different finishes, different lengths and different personalities.",
+    storyTitle:"This is where the style work gets to breathe.",
+    storyCopy:"Styles are kept separate from repair and starter work, so the section feels like a real visual portfolio instead of a repeated homepage gallery.",
     cta:"Ask About a Style",
     media:[
       ["assets/blonde-style.webp","Blonde loc style"],
-      ["assets/short-locs.webp","Short loc styling"],
-      ["assets/hero-curly-locs-hq.webp","Curly loc styling"]
+      ["assets/hero-curly-locs-hq.webp","Curly loc style"],
+      ["assets/styles.webp","Statement loc style"]
     ]
   }
 };
@@ -58,7 +55,6 @@ const serviceData={
 const extension=document.querySelector("#service-extension");
 const gallery=document.querySelector("#extension-gallery");
 const imageModal=document.querySelector(".image-modal");
-let currentService=null;
 
 function openImage(src,title){
   imageModal.querySelector("img").src=src;
@@ -68,18 +64,13 @@ function openImage(src,title){
   imageModal.setAttribute("aria-hidden","false");
   document.body.style.overflow="hidden";
 }
-function closeImage(){
-  imageModal.classList.remove("open");
-  imageModal.setAttribute("aria-hidden","true");
-  document.body.style.overflow="";
-}
+function closeImage(){imageModal.classList.remove("open");imageModal.setAttribute("aria-hidden","true");document.body.style.overflow="";}
 document.querySelector(".modal-close")?.addEventListener("click",closeImage);
 imageModal?.addEventListener("click",e=>{if(e.target===imageModal)closeImage()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeImage()});
 
 function renderExtension(key){
   const d=serviceData[key];
-  currentService=key;
   extension.hidden=false;
   document.querySelector(".extension-kicker").textContent=d.kicker;
   document.querySelector(".extension-title").textContent=d.title;
@@ -96,13 +87,11 @@ function renderExtension(key){
   document.querySelectorAll(".service-card").forEach(card=>card.classList.toggle("active",card.dataset.service===key));
   requestAnimationFrame(()=>extension.scrollIntoView({behavior:"smooth",block:"nearest"}));
 }
-
 document.querySelectorAll(".service-card").forEach(card=>{
   card.querySelectorAll(".service-select").forEach(btn=>btn.addEventListener("click",()=>renderExtension(card.dataset.service)));
 });
 document.querySelector(".extension-close")?.addEventListener("click",()=>{
   extension.hidden=true;
-  currentService=null;
   document.querySelectorAll(".service-card").forEach(card=>card.classList.remove("active"));
 });
 
