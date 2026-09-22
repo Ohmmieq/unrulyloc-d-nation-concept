@@ -1,159 +1,56 @@
-const menuToggle=document.querySelector(".menu-toggle");
-const nav=document.querySelector(".main-nav");
-
-menuToggle?.addEventListener("click",()=>{
-  const open=nav.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded",String(open));
-});
-
-document.querySelectorAll(".main-nav a").forEach(link=>{
-  link.addEventListener("click",()=>{
-    nav.classList.remove("open");
-    menuToggle?.setAttribute("aria-expanded","false");
-  });
-});
+const menu=document.querySelector(".menu");
+const nav=document.querySelector(".nav");
+menu?.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));});
+document.querySelectorAll(".nav a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
 
 const serviceData={
-  restoration:{
-    number:"01",
-    kicker:"HAIR RESTORATION",
-    title:"Bring the crown back.",
-    copy:"A restoration-first service built around preserving what can be saved, strengthening weak areas and creating a maintenance plan that protects the result.",
-    tags:["Assessment","Repair","Reinforcement","Aftercare"]
-  },
-  retwist:{
-    number:"02",
-    kicker:"RETWIST & LOC CARE",
-    title:"Fresh roots. Better energy.",
-    copy:"Clean sectioning, comfortable tension and maintenance that leaves the crown polished without sacrificing healthy growth.",
-    tags:["Retwist","Cleansing","Sectioning","Maintenance"]
-  },
-  repair:{
-    number:"03",
-    kicker:"LOC REPAIRS",
-    title:"Repair before it snaps.",
-    copy:"Targeted support for thinning roots, loose sections, breakage and detached locs — focused on the actual weak point, not a one-size-fits-all fix.",
-    tags:["Weak roots","Crochet","Reattachment","Strength"]
-  },
-  instant:{
-    number:"04",
-    kicker:"INSTANT LOCS",
-    title:"Start locked. Start strong.",
-    copy:"A deliberate loc foundation for clients who want an established look from day one with clean parting, structure and a strong starting point.",
-    tags:["Consultation","Sectioning","Foundation","Finish"]
-  }
+ starter:{kicker:"STARTER LOCS",title:"Start clean. Start right.",copy:"A strong loc journey begins with the foundation: thoughtful sectioning, clean parts and a starter method selected around the hair and the look you want.",tags:["Consultation","Sectioning","Foundation","Aftercare"]},
+ repair:{kicker:"LOC REPAIRS",title:"Restore. Strengthen. Rebuild.",copy:"Targeted repair for thinning, weak or damaged locs, including reinforcement and reattachment where appropriate.",tags:["Assessment","Repair","Reinforcement","Maintenance"]},
+ retwist:{kicker:"FRESH RETWIST",title:"Clean roots. Sharp finish.",copy:"Root maintenance with clean sectioning, controlled tension and a polished finish that keeps the locs healthy and wearable.",tags:["Retwist","Clean parts","Maintenance","Finish"]},
+ styles:{kicker:"LOC STYLES",title:"Make the crown yours.",copy:"From clean everyday styling to statement looks, style is built around the client's loc length, density and personality.",tags:["Consultation","Styling","Protective looks","Finish"]}
 };
-
-const detail=document.querySelector("#service-detail");
-const marker=document.querySelector(".service-detail-marker");
-const detailKicker=document.querySelector(".detail-kicker");
-const detailTitle=document.querySelector(".detail-title");
-const detailDescription=document.querySelector(".detail-description");
-const detailTags=document.querySelector(".detail-tags");
-
-document.querySelectorAll("[data-open-service]").forEach(button=>{
-  button.addEventListener("click",()=>{
-    const item=serviceData[button.dataset.openService];
-    marker.textContent=item.number;
-    detailKicker.textContent=item.kicker;
-    detailTitle.textContent=item.title;
-    detailDescription.textContent=item.copy;
-    detailTags.innerHTML=item.tags.map(tag=>`<span>${tag}</span>`).join("");
-    detail.scrollIntoView({behavior:"smooth",block:"center"});
-  });
-});
-
 const serviceModal=document.querySelector(".service-modal");
-const modalKicker=document.querySelector(".modal-kicker");
-const modalTitle=document.querySelector(".modal-title");
-const modalCopy=document.querySelector(".modal-copy");
-const modalTags=document.querySelector(".modal-tags");
-
-document.querySelectorAll(".service-panel").forEach(panel=>{
-  panel.addEventListener("dblclick",()=>{
-    const item=serviceData[panel.dataset.service];
-    modalKicker.textContent=item.kicker;
-    modalTitle.textContent=item.title;
-    modalCopy.textContent=item.copy;
-    modalTags.innerHTML=item.tags.map(tag=>`<span>${tag}</span>`).join("");
-    serviceModal.classList.add("open");
-    serviceModal.setAttribute("aria-hidden","false");
-    document.body.style.overflow="hidden";
-  });
+document.querySelectorAll(".service-card").forEach(card=>{
+  card.querySelectorAll(".service-trigger").forEach(trigger=>trigger.addEventListener("click",()=>{
+    const d=serviceData[card.dataset.service];
+    serviceModal.querySelector(".modal-kicker").textContent=d.kicker;
+    serviceModal.querySelector(".modal-title").textContent=d.title;
+    serviceModal.querySelector(".modal-copy").textContent=d.copy;
+    serviceModal.querySelector(".modal-tags").innerHTML=d.tags.map(t=>`<span>${t}</span>`).join("");
+    serviceModal.classList.add("open");serviceModal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
+  }));
 });
+function closeModal(modal){modal?.classList.remove("open");modal?.setAttribute("aria-hidden","true");document.body.style.overflow="";}
+serviceModal?.querySelector(".modal-close").addEventListener("click",()=>closeModal(serviceModal));
+serviceModal?.addEventListener("click",e=>{if(e.target===serviceModal)closeModal(serviceModal)});
 
-function closeServiceModal(){
-  serviceModal?.classList.remove("open");
-  serviceModal?.setAttribute("aria-hidden","true");
-  document.body.style.overflow="";
-}
-document.querySelector(".service-modal-close")?.addEventListener("click",closeServiceModal);
-serviceModal?.addEventListener("click",e=>{if(e.target===serviceModal)closeServiceModal();});
+const imageModal=document.querySelector(".image-modal");
+document.querySelectorAll(".gallery-item").forEach(item=>item.addEventListener("click",()=>{
+  imageModal.querySelector("img").src=item.dataset.full;
+  imageModal.querySelector("img").alt=item.dataset.title;
+  imageModal.querySelector("p").textContent=item.dataset.title;
+  imageModal.classList.add("open");imageModal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
+}));
+imageModal?.querySelector(".image-close").addEventListener("click",()=>closeModal(imageModal));
+imageModal?.addEventListener("click",e=>{if(e.target===imageModal)closeModal(imageModal)});
 
-const lightbox=document.querySelector(".lightbox");
-const lightboxImg=lightbox?.querySelector("img");
-const lightboxTitle=lightbox?.querySelector("p");
-
-document.querySelectorAll("[data-lightbox]").forEach(card=>{
-  card.addEventListener("click",()=>{
-    lightboxImg.src=card.dataset.lightbox;
-    lightboxImg.alt=card.dataset.title;
-    lightboxTitle.textContent=card.dataset.title;
-    lightbox.classList.add("open");
-    lightbox.setAttribute("aria-hidden","false");
-    document.body.style.overflow="hidden";
-  });
-});
-
-function closeLightbox(){
-  lightbox?.classList.remove("open");
-  lightbox?.setAttribute("aria-hidden","true");
-  document.body.style.overflow="";
-}
-document.querySelector(".lightbox-close")?.addEventListener("click",closeLightbox);
-lightbox?.addEventListener("click",e=>{if(e.target===lightbox)closeLightbox();});
+document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{
+  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");
+  const f=btn.dataset.filter;
+  document.querySelectorAll(".gallery-item").forEach(item=>item.classList.toggle("hidden",f!=="all"&&!item.dataset.category.includes(f)));
+}));
 
 const portalModal=document.querySelector(".portal-modal");
-function openPortal(){
-  portalModal?.classList.add("open");
-  portalModal?.setAttribute("aria-hidden","false");
-  document.body.style.overflow="hidden";
-}
-function closePortal(){
-  portalModal?.classList.remove("open");
-  portalModal?.setAttribute("aria-hidden","true");
-  document.body.style.overflow="";
-}
-document.querySelector(".portal-demo")?.addEventListener("click",openPortal);
-document.querySelector(".studio-login-trigger")?.addEventListener("click",openPortal);
-document.querySelector(".portal-modal-close")?.addEventListener("click",closePortal);
-portalModal?.addEventListener("click",e=>{if(e.target===portalModal)closePortal();});
+document.querySelector(".owner-login")?.addEventListener("click",()=>{portalModal.classList.add("open");portalModal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";});
+portalModal?.querySelector(".portal-close").addEventListener("click",()=>closeModal(portalModal));
+portalModal?.addEventListener("click",e=>{if(e.target===portalModal)closeModal(portalModal)});
 
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){
-    closeLightbox();
-    closeServiceModal();
-    closePortal();
-  }
-});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal(serviceModal);closeModal(imageModal);closeModal(portalModal)}});
 
-const revealObserver=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting)entry.target.classList.add("visible");
-  });
-},{threshold:.13});
-document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.1});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
 const sections=[...document.querySelectorAll("main section[id]")];
-const navLinks=[...document.querySelectorAll('.main-nav a[href^="#"]')];
-
-const sectionObserver=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(!entry.isIntersecting)return;
-    navLinks.forEach(link=>{
-      link.classList.toggle("active",link.getAttribute("href")===`#${entry.target.id}`);
-    });
-  });
-},{rootMargin:"-42% 0px -48% 0px"});
-
-sections.forEach(section=>sectionObserver.observe(section));
+const navLinks=[...document.querySelectorAll('.nav a[href^="#"]')];
+const secObs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")===`#${e.target.id}`))}),{rootMargin:"-42% 0px -48% 0px"});
+sections.forEach(s=>secObs.observe(s));
