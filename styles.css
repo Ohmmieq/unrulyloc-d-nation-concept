@@ -34,3 +34,22 @@ footer{min-height:90px;padding:24px 5.5vw;display:flex;align-items:flex-start;ju
 .service-card.active{background:#11100d;box-shadow:inset 0 -3px 0 var(--gold)}
 @media(max-width:950px){.extension-gallery{grid-template-columns:1fr 1fr}.extension-footer{grid-template-columns:1fr}.extension-book{justify-self:start}}
 @media(max-width:620px){.service-extension{padding:28px 14px}.extension-head h2{font-size:39px}.extension-gallery{grid-template-columns:1fr}.extension-media{height:420px}}
+
+/* Premium inline service portfolio */
+.service-extension{margin:0;border:1px solid var(--line);border-top:0;background:#090a09;padding:34px 28px 30px}
+.service-extension[hidden]{display:none}
+.extension-head{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;margin-bottom:22px}
+.extension-head h2{margin:0;font:600 48px/.95 "Cormorant Garamond",serif}
+.extension-copy{max-width:650px;color:#aaa195;font-size:11px;line-height:1.65}
+.extension-close{border:0;background:none;color:#91877b;font-size:32px;line-height:1;cursor:pointer}
+.extension-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.extension-media{position:relative;aspect-ratio:1/1;padding:0;border:0;background:#12110f;overflow:hidden;cursor:pointer}
+.extension-media img{width:100%;height:100%;object-fit:cover;image-rendering:auto;transition:transform .35s ease}
+.extension-media:hover img{transform:scale(1.025)}
+.extension-media span{position:absolute;left:10px;bottom:10px;background:rgba(7,7,6,.78);padding:7px 9px;font-size:7px;letter-spacing:.1em}
+.extension-footer{display:grid;grid-template-columns:1fr auto;gap:34px;align-items:end;margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08)}
+.extension-footer h3{font:600 31px "Cormorant Garamond",serif;margin:0 0 6px}
+.extension-story-copy{max-width:650px;color:#968d82;font-size:10px;line-height:1.7}
+.extension-book{white-space:nowrap}
+@media(max-width:950px){.extension-gallery{grid-template-columns:repeat(2,1fr)}.extension-footer{grid-template-columns:1fr}.extension-book{justify-self:start}}
+@media(max-width:620px){.service-extension{padding:28px 14px}.extension-head h2{font-size:40px}.extension-gallery{grid-template-columns:repeat(2,1fr)}}
