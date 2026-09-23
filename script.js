@@ -9,13 +9,13 @@ const serviceData={
     title:"Loc Repairs",
     copy:"Focused repair for thinning, weak or damaged locs. This gallery shows repair and restoration work only.",
     list:["Damage assessment","Weak-root reinforcement","Repair / reattachment","Maintenance planning"],
-    images:["assets/final-loc-repair.png","assets/loc-repair-hq.webp"]
+    images:["assets/real-loc-repair.jpg","assets/loc-repair-hq.webp"]
   },
   retwist:{
     title:"Fresh Retwist",
     copy:"Fresh retwists with clean parts, controlled tension and polished roots. This section is strictly real loc maintenance and styling.",
     list:["Fresh retwist","Clean root work","Defined parts","Styled finish"],
-    images:["assets/final-fresh-retwist.png","assets/styles.webp"]
+    images:["assets/real-fresh-retwist.jpg","assets/styles.webp"]
   },
   styles:{
     title:"Styles",
